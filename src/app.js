@@ -1,13 +1,18 @@
 const path = require('path')
 const express = require('express');
 const hbs = require('hbs')
-const app = express()
 const geocode = require('./utils/geocode')
 const forecast = require('./utils/forecast')
+
+const app = express()
+const port = process.env.PORT || 3000
 //define path for express config
 const publicDirPath = path.join(__dirname, '../public')
 const viewDirPath = path.join(__dirname, '../templates/views')
 const partialDirPath = path.join(__dirname, '../templates/partial')
+
+//for heroku port number
+
 
 // setup hndlebar engine and views path
 app.set('view engine', 'hbs')
@@ -76,7 +81,7 @@ app.get('*', (req,res)=>{
         errorMessage:'404 page not found'
     })
 })
-app.listen(3000,() => {
+app.listen(port,() => {
     console.log('setting up express server')
 })
 // app.get('',(req, res) => {
