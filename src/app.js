@@ -29,11 +29,14 @@ app.get('', (req,res) => {
 })
  
   
-// app.get('/products', (req, res) => {
-//     console.log(req.query.item)
-//     res.send([{forcast : '36', location : 'pune'}])
+app.get('/about', (req, res) => {
+    res.render('about',  {
+        title:'About me',
+        message :'This site is created by Pradnya Chikane. It\'s uses data from weather stack.',
+        name:'pradnya chikane' 
+    })
   
-// })
+})
 app.get('/weather', (req, res) => {
     if(!req.query.address){
         return res.send({error:'You must provide an address'})
